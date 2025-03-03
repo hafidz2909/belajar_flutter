@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import '../data/list_nama.dart'; // Import the list_nama.dart file
-import '../data/map_nama.dart'; // Import the list_nama.dart file
-
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
- 
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-    
+
       body: ListView.separated(
         separatorBuilder: (context, index) {
           return Divider();
@@ -21,8 +18,8 @@ class HomeScreen extends StatelessWidget {
         // scrollDirection: Axis.horizontal,
         itemCount: Listname.length,
         itemBuilder: (BuildContext context, int index) {
-          final dataName =Listname[index];
-        return Text(dataName, style: TextStyle(fontSize: 20),);
+          final dataName = Listname[index];
+          return Text(dataName, style: TextStyle(fontSize: 20));
         },
       ),
     );

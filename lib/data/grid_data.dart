@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 import '../model/grid_model.dart'; // Import the list_nama.dart file
 
-
 List<GridModel> gridData = [
-  GridModel(image: AssetImage('assets/images/1.jpg'), name: "Image 1", color: Colors.red),
-  GridModel(image: AssetImage('assets/images/2.jpg'), name: "Image 2", color: Colors.green),
-  GridModel(image: AssetImage('assets/images/3.jpg'), name: "Image 3", color: Colors.blue),
-  GridModel(image: AssetImage('assets/images/4.jpg'), name: "Image 4", color: Colors.yellow),
+  GridModel(
+    image: AssetImage('Assets/image/1.jpg'),
+    name: "Image 1",
+    color: Colors.red,
+  ),
+  GridModel(
+    image: AssetImage('Assets/image/2.jpg'),
+    name: "Image 2",
+    color: Colors.green,
+  ),
+  GridModel(
+    image: AssetImage('Assets/image/3.jpg'),
+    name: "Image 3",
+    color: Colors.blue,
+  ),
+  GridModel(
+    image: AssetImage('Assets/image/4.jpg'),
+    name: "Image 4",
+    color: Colors.yellow,
+  ),
   // GridModel(name: "Green", color: Colors.green),
   // GridModel(name: "Blue", color: Colors.blue),
   // GridModel(name: "Yellow", color: Colors.yellow),
