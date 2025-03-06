@@ -1,5 +1,6 @@
 import 'package:first/drawer.dart';
 import 'package:first/first.dart';
+import 'package:first/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,18 +16,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-       
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const FirstClass(),
+      home: const layarSplash(),
     );
   }
+
   // Widget @override
   // Widget build(BuildContext context) {
   //   return MaterialApp()
   //   return ;
   // }
- }
+}
 
 // class MyHomePage extends StatefulWidget {
 //   const FirstClass({super.key, required this.title});

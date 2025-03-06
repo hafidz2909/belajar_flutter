@@ -56,21 +56,15 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  String username = _usernameController.text;
-                  String email = _emailController.text;
-                  String password = _passwordController.text;
+                  if (_formKey.currentState!.validate()) {
+                    String email = _emailController.text;
+                    String password = _passwordController.text;
 
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => parcing(
-                            username: username,
-                            email: email,
-                            password: password,
-                          ),
-                    ),
-                  );
+                    Navigator.pop(context, {
+                      'email': email,
+                      'password': password,
+                    });
+                  }
                 },
                 child: Text('Create Account'),
               ),

@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:first/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'create_screen.dart'; // Import the create account screen
 
 class LoginScreen extends StatefulWidget {
@@ -16,6 +15,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String _errorMessage = '';
+  String _registeredEmail = '';
+  String _registeredPassword = '';
 
   @override
   Widget build(BuildContext context) {
@@ -104,8 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          if (_emailController.text == 'test@example.com' &&
-                              _passwordController.text == 'password') {
+                          if (_emailController.text == _registeredEmail &&
+                              _passwordController.text == _registeredPassword) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -125,16 +126,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 1, 20, 50),
                     child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
+                      onTap: () async {
+                        final result = await Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => CreateAccountScreen(),
                           ),
                         );
+                        if (result != null && result is Map<String, String>) {
+                          if (result != null && result is Map<String, String>) {
+                            final prefs = await SharedPreferences.getInstance();
+                            await prefs.setString('email', result['email']!);
+                            await prefs.setString(
+                              'password',
+                              result['password']!,
+                            );
+                          }
+                          // setState(() {
+                          //   _registeredEmail = result['email']!;
+                          //   _registeredPassword = result['password']!;
+                          // });
+                        }
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
+
                         width: 160,
                         height: 40,
                         decoration: BoxDecoration(
