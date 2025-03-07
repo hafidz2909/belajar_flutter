@@ -1,6 +1,7 @@
 import 'package:first/first.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:google_fonts/google_fonts.dart';
 
 class layarSplash extends StatefulWidget {
   const layarSplash({super.key});
@@ -30,10 +31,10 @@ class _layarSplashState extends State<layarSplash> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'Assets/image/banteng.png',
+              'Assets/image/logo.apis.png',
               // width: 150,
               // height: 150,
-              fit: BoxFit.cover,
+              // fit: BoxFit.cover,
             ),
             Text(
               'Wellcome to My App',

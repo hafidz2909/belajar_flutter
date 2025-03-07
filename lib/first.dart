@@ -5,6 +5,7 @@ import 'package:first/expanded/expanded_screen.dart';
 import 'package:first/grid/grid_screen.dart';
 import 'package:first/home/home_screen.dart';
 import 'package:first/school/school_screen.dart';
+import 'package:first/wellcom_screen.dart';
 import 'package:first/widget/dropdown.dart';
 import 'package:flutter/material.dart';
 
@@ -121,6 +122,16 @@ class FirstClass extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const DropdownClass(),
                   ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.photo),
+              title: const Text("wellcome screen"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const IntroScreens()),
                 );
               },
             ),

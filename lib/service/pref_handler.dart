@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PreferenceHandler {
   static const String _registeredEmail = 'registeredEmail';
   static const String _registeredPassword = 'registeredPassword';
+  static const String _lookWellcoming = 'lookWellcoming';
 
   // for saving email and password
   static void saveId(String email, String password) {
@@ -10,6 +11,14 @@ class PreferenceHandler {
     print('registered password: $password');
     SharedPreferences.getInstance().then((prefs) {
       prefs.setString(_registeredEmail, email);
+    });
+  }
+
+  // savelook
+  static void saveLookWellcoming(bool look) {
+    print('look: $look');
+    SharedPreferences.getInstance().then((prefs) {
+      prefs.setBool('_lookWellcoming', look);
     });
   }
 
@@ -21,6 +30,13 @@ class PreferenceHandler {
         prefs.getString(PreferenceHandler._registeredPassword) ?? '';
     return email;
     return password;
+  }
+
+  // getlook
+  static Future getLookWelcoming() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool look = prefs.getBool(_lookWellcoming) ?? false;
+    return look;
   }
 
   // for removing email and password
