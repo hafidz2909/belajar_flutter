@@ -5,6 +5,7 @@ import 'package:first/expanded/expanded_screen.dart';
 import 'package:first/grid/grid_screen.dart';
 import 'package:first/home/home_screen.dart';
 import 'package:first/school/school_screen.dart';
+import 'package:first/todo/project_note.dart';
 import 'package:first/wellcom_screen.dart';
 import 'package:first/widget/dropdown.dart';
 import 'package:flutter/material.dart';
@@ -132,6 +133,16 @@ class FirstClass extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const IntroScreens()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.photo),
+              title: const Text("Note"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NoteListScreen()),
                 );
               },
             ),
